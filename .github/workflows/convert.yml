@@ -1,14 +1,15 @@
 name: Собрать reestr.json из выгрузки
 
-# Запускается сам, когда вы загружаете новый xlsx в папку data/
+# Запускается сам, когда вы загружаете новый xlsx в репозиторий
 on:
   push:
     paths:
-      - 'data/**'
-  workflow_dispatch: {}   # + кнопку "Run workflow" для запуска вручную
+      - '**.xlsx'
+      - '**.xls'
+  workflow_dispatch: {}
 
 permissions:
-  contents: write          # разрешить боту записать reestr.json обратно
+  contents: write
 
 jobs:
   build:
